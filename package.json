@@ -9,8 +9,19 @@
   "scripts": {
     "start": "cross-env NODE_ENV=dev webpack-dev-server --config webpack/webpack.dev.js --open",
     "build": "cross-env NODE_ENV=prod webpack --config webpack/webpack.prod.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src/**/*.{ts,tsx} -f html --cache -o ./eslintError.html",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn run lint",
+      "git add --force"
+    ],
+    "*.{md,json}": [
+      "git add --force"
+    ]
+},
   "devDependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
