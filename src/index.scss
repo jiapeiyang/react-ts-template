@@ -1,0 +1,6 @@
+.hello {
+  @include wh(600px, 600px);
+  background: url('./assets/images/01.png') no-repeat center;
+  background-size: 100% 100%;
+  color: #fff;
+}
